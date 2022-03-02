@@ -23,7 +23,7 @@ namespace GameLogic
 
         // Abstraction of the player class
         public Board.Symbol PlayerSymbol { get; set; }
-        
+
         // Move method
         public void makeMove(Board board, Point move)
         {
@@ -39,6 +39,7 @@ namespace GameLogic
         {
             // Return opposite symbol
             // Used to determine opponent symbol
+            // Tic Tac Toe functions
             if (symbol == Board.Symbol.O)
             {
                 return Board.Symbol.X;
@@ -57,7 +58,7 @@ namespace GameLogic
         {
             public HumanPlayer(Board.Symbol symbol) : base(symbol)
             {
-                this.PlayerSymbol = symbol;
+                PlayerSymbol = symbol;
             }
         }
         public class ComputerPlayer : Player
@@ -65,7 +66,7 @@ namespace GameLogic
 
             public ComputerPlayer(Board.Symbol symbol) : base(symbol)
             {
-                this.PlayerSymbol = symbol;
+                PlayerSymbol = symbol;
             }
             private Point move = new Point();
             public Point genEasyMove(Board board)
@@ -106,7 +107,7 @@ namespace GameLogic
                         Point p = new Point(i, j);
 
                         // Check if cell is empty
-                        if(board.Grid[i, j] == 0)
+                        if (board.Grid[i, j] == 0)
                         {
                             board.updatePosition(p, Board.Symbol.O);
 
@@ -116,7 +117,7 @@ namespace GameLogic
 
                             // If the returned cell is higher value than
                             // previous best cell
-                            if(score > bestScore)
+                            if (score > bestScore)
                             {
                                 Console.WriteLine($"Best Score: {bestScore}, {move}.");
                                 move.X = i;
@@ -137,11 +138,11 @@ namespace GameLogic
             {
                 // Scoring function for board states.
                 // Supports minimax algorithm
-                if(board.checkForWinner() == 2)
+                if (board.checkForWinner() == 2)
                 {
                     return 10;
                 }
-                if(board.checkForWinner() == 1)
+                if (board.checkForWinner() == 1)
                 {
                     return -10;
                 }
@@ -187,7 +188,7 @@ namespace GameLogic
                         {
                             // Find empty position
                             // Call minimax recursively
-                            if(board.Grid[i, j] == 0)
+                            if (board.Grid[i, j] == 0)
                             {
                                 // Make a move
                                 Point p = new Point(i, j);

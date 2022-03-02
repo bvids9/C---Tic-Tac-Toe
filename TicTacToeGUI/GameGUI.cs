@@ -1,6 +1,6 @@
 namespace TicTacToeGUI
 {
-    internal static class Program
+    internal static class GameGUI
     {
         /// <summary>
         ///  The main entry point for the application.
