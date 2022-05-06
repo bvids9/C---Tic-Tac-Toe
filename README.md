@@ -1,4 +1,4 @@
-# C---Tic-Tac-Toe
+# C# - Tic Tac Toe
 Tic Tac Toe with GUI
 
 Assignment for Object Oriented Design
